@@ -15,10 +15,19 @@
 // return (solution(n - 1) + solution(n - 2)) % 1234567;
 // }
 
+// 재귀가 반복문보다 성능 좋지 않음
+// 시간초과가 난 것으로 보아 재귀보다 빠른 방법 필요함
+
+// 자바스크립트 엔진이 가능한 재귀호출의 깊이는 보통 10000
+// 깊이를 초과해서 런타임에러가 난 것으로 추측
+// 재귀는 사용할 수 없다는 뜻
+
 function solution(n) {
-  if (n <= 1) return n;
-  const answer = (solution(n - 1) % 1234567) + (solution(n - 2) % 1234567);
-  return answer % 1234567;
+  const fib = [0, 1];
+  for (let i = 2; i <= n; i++) {
+    fib[i] = (fib[i - 1] + fib[i - 2]) % 1234567;
+  }
+  return fib[n];
 }
 
 console.log(solution(0));
