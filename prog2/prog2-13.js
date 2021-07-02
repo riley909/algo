@@ -43,3 +43,13 @@ const citations2 = [5, 5, 5, 5];
 
 console.log(solution(citations1));
 console.log(solution(citations2));
+
+// NOTE: Reference
+function solutionRef(citations) {
+  citations = citations.sort((a, b) => b - a);
+  let i = 0;
+  while (i + 1 <= citations[i]) {
+    i++;
+  }
+  return i;
+}
