@@ -19,3 +19,28 @@
 // [13, 111, 111]
 // [14, 112, 112]
 // [15, 120, 114]
+
+// 3진법이 124보다 먼저 자리수 올라감
+// n % 3 === 1 끝자리 1
+// n % 3 === 2 끝자리 2
+// n % 3 === 0 끝자리 4
+// 3진법 = [0, 1, 2], 124 = [4, 1, 2]
+
+// n = 3
+// 3 % 3 = 0 => num124[0] 4
+// 1 % 3 = 1 => num124[1] 1
+// 아래서부터 거꾸로 붙임 => 14
+//! 나누어 떨어지는 경우는 진법 변환에서 앞자리 수가 바뀌는 경우
+// 14가 아니라 4여야함
+
+function solution(n) {
+  let answer = '';
+
+  return answer;
+}
+
+console.log(solution(3));
+// console.log(solution(9));
+// console.log(solution(10));
+// console.log(solution(14));
+// console.log(solution(15));
