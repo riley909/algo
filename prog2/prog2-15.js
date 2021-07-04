@@ -33,9 +33,28 @@
 //! 나누어 떨어지는 경우는 진법 변환에서 앞자리 수가 바뀌는 경우
 // 14가 아니라 4여야함
 
+// function solution(n) {
+//   let answer = '';
+//   // 무조건 이 수만 사용
+//   const num124 = [4, 1, 2];
+//   let rest = 0;
+
+//   while (n > 0) {
+//     rest = n % 3;
+//     n = Math.floor(n / 3);
+//     if (rest === 0) n -= 1;
+//     answer = num124[rest] + answer;
+//   }
+//   return answer;
+// }
+
 function solution(n) {
   let answer = '';
-
+  const num124 = [4, 1, 2];
+  while (n > 0) {
+    answer = num124[n % 3] + answer;
+    n = n % 3 === 0 ? n / 3 - 1 : Math.floor(n / 3);
+  }
   return answer;
 }
 
