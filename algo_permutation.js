@@ -1,11 +1,18 @@
 const input = ['A', 'B', 'C', 'D'];
 const answer = [];
 
-function permutaion(arr, n, r) {
+// arr = 원소를 뽑을 배열
+// n = 원소의 개수, 0부터 시작
+// r = 뽑을 원소의 수
+// n개의 원소에서 r개 뽑기
+function permutation(arr, n, r) {
   console.log(n);
-  console.log(arr.length);
+  console.log(arr.length - 1);
+
   if (n === arr.length - 1) {
     const str = arr.slice(0, r).join('');
+
+    // answer 배열에 이미 존재하지 않으면 push
     if (!answer.includes(str)) {
       answer.push(str);
       return;
@@ -18,7 +25,7 @@ function permutaion(arr, n, r) {
       arr[i] = temp;
       console.log(arr[n], arr[i]);
 
-      permutaion(arr, n + 1, r);
+      permutation(arr, n + 1, r);
 
       arr[i] = arr[n];
       arr[n] = temp;
@@ -27,4 +34,4 @@ function permutaion(arr, n, r) {
   }
 }
 console.log(answer);
-console.log(permutaion(input, 0, 2));
+console.log(permutation(input, 0, 2));
